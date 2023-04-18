@@ -11,10 +11,10 @@ import { Container } from './styles';
 
 interface Props {
   name: string;
-  label: string;
+  // label: string;
   icon?: string;
   placeholder: string;
-  value: string;
+  // value: string;
 }
 
 export function Input ({ name, icon: Icon, ...rest }: Props) {

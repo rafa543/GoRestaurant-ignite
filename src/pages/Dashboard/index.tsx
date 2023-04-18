@@ -37,7 +37,7 @@ export function Dashboard() {
     teste()
   }, [])
 
-  async function handleAddFood(food: string) {
+  async function handleAddFood(food: Foods) {
     // const { foods } = this.state;
 
     try {
@@ -104,7 +104,7 @@ export function Dashboard() {
       <ModalEditFood
         isOpen={editModalOpen}
         setIsOpen={toggleEditModal}
-        editingFood={editingFood}
+        // editingFood={editingFood}
         handleUpdateFood={handleUpdateFood}
       />
 

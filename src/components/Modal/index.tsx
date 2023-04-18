@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useState
 } from 'react';
 import ReactModal from 'react-modal';
@@ -9,15 +10,19 @@ interface ModalType {
   setIsOpen: () => void;
 }
 
-export function Modal({ children,isOpen, setIsOpen}: ModalType) {
+export function Modal({ children, isOpen, setIsOpen }: ModalType) {
   const [modalStatus, setModalState] = useState(false)
 
+  useEffect(() => {
+    console.log(isOpen + "linhs 17")
+    // console.log('teste')
+  }, [])
 
   return (
     <ReactModal
       shouldCloseOnOverlayClick={!false}
       onRequestClose={setIsOpen}
-      isOpen={modalStatus}
+      isOpen={isOpen}
       ariaHideApp={false}
       style={{
         content: {
