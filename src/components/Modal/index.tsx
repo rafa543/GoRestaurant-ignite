@@ -5,7 +5,7 @@ import {
 import ReactModal from 'react-modal';
 
 interface ModalType {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   isOpen: boolean;
   setIsOpen: () => void;
 }
@@ -13,10 +13,13 @@ interface ModalType {
 export function Modal({ children, isOpen, setIsOpen }: ModalType) {
   const [modalStatus, setModalState] = useState(false)
 
-  useEffect(() => {
-    console.log(isOpen + "linhs 17")
-    // console.log('teste')
-  }, [])
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     setModalState(false)
+  //   } else {
+  //     setModalState(true)
+  //   }
+  // }, [])
 
   return (
     <ReactModal

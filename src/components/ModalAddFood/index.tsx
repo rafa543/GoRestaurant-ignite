@@ -1,4 +1,3 @@
-import { Component, createRef, useEffect } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 
 import { Form } from './styles';
@@ -7,7 +6,6 @@ import Input from '../Input';
 import {
   useState
 } from 'react';
-import { boolean } from 'yup';
 import { Foods } from '../../pages/Dashboard';
 
 interface Props {
@@ -17,23 +15,18 @@ interface Props {
 }
 
 export function ModalAddFood({isOpen,setIsOpen, handleAddFood}: Props) {
-  const formRef = createRef()
+  // const formRef = createRef()
 
-  async function handleSubmit() {
-    // const { setIsOpen, handleAddFood } = this.props;
-
-    // handleAddFood(data);
+  async function handleSubmit(data: Foods) {
+    console.log(data)
+    handleAddFood(data);
     setIsOpen();
   };
 
-  useEffect(() => {
-    console.log("modal")
-    // console.log('teste')
-  }, [])
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form onSubmit={handleSubmit}>
+      <Form  onSubmit={handleSubmit}>
         <h1>Novo Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />
 

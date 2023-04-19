@@ -38,11 +38,10 @@ export function Dashboard() {
   }, [])
 
   async function handleAddFood(food: Foods) {
-    // const { foods } = this.state;
-
+    
     try {
       const response = await api.post('/foods', {
-        ...foods,
+        ...food,
         available: true,
       });
 
@@ -53,11 +52,9 @@ export function Dashboard() {
   }
 
   async function handleUpdateFood(foodEdition: Foods) {
-    // const { foods, editingFood } = this.state;
-
     try {
       const foodUpdated = await api.put(
-        `/foods/${foodEdition.id}`,
+        `/foods/${editingFood?.id}`,
         { ...foodEdition, ...foods },
       );
 
@@ -85,6 +82,8 @@ export function Dashboard() {
   }
 
   function toggleEditModal() {
+    console.log("toggle")
+    console.log(!editModalOpen)
     setModalOpen(!editModalOpen);
   }
 
@@ -104,7 +103,7 @@ export function Dashboard() {
       <ModalEditFood
         isOpen={editModalOpen}
         setIsOpen={toggleEditModal}
-        // editingFood={editingFood}
+        editingFood={editingFood}
         handleUpdateFood={handleUpdateFood}
       />
 

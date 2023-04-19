@@ -22,18 +22,18 @@ export function Input ({ name, icon: Icon, ...rest }: Props) {
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-
+  
   const { fieldName, defaultValue, registerField } = useField(name);
 
-  const handleInputFocus = useCallback(() => {
+  function handleInputFocus () {
+    console.log("Input focus")
     setIsFocused(true);
-  }, []);
+  }
 
-  const handleInputBlur = useCallback(() => {
+  function handleInputBlur () {
     setIsFocused(false);
-
     setIsFilled(!!inputRef.current?.value);
-  }, []);
+  }
 
   useEffect(() => {
     registerField({

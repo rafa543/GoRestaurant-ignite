@@ -8,21 +8,22 @@ import { Foods } from '../../pages/Dashboard';
 
 interface Props {
   isOpen: boolean;
-  setIsOpen: () => void;
-  // editingFood: () => void;
+  setIsOpen: () => void
+  editingFood?: Foods;
   handleUpdateFood: (food: Foods) => void;
 }
 
-export function ModalEditFood({isOpen, setIsOpen, handleUpdateFood}: Props) {
-  async function handleSubmit() {
+export function ModalEditFood({isOpen, setIsOpen, editingFood, handleUpdateFood }: Props) {
 
-    // handleUpdateFood(data);
-    // setIsOpen();
+  async function handleSubmit(data: Foods) {
+    console.log(isOpen)
+    handleUpdateFood(data);
+    setIsOpen();
   };
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form onSubmit={handleSubmit}>
+    <Modal isOpen={isOpen} setIsOpen={() => setIsOpen}>
+      <Form onSubmit={handleSubmit} initialData={editingFood}>
         <h1>Editar Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />
 
