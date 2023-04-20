@@ -22,7 +22,7 @@ export function ModalEditFood({isOpen, setIsOpen, editingFood, handleUpdateFood 
   };
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={() => setIsOpen}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form onSubmit={handleSubmit} initialData={editingFood}>
         <h1>Editar Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />

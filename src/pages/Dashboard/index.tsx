@@ -21,12 +21,6 @@ export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
-  async function componentDidMount() {
-    const response = await api.get('/foods');
-
-    setFoods(response.data);
-  }
-
   useEffect(() => {
     async function teste() {
       const response = await api.get('/foods');
@@ -82,14 +76,12 @@ export function Dashboard() {
   }
 
   function toggleEditModal() {
-    console.log("toggle")
-    console.log(!editModalOpen)
-    setModalOpen(!editModalOpen);
+    setEditModalOpen(!editModalOpen);
   }
 
   function handleEditFood(food: Foods) {
     setEditingFood(food);
-    setEditModalOpen(true)
+    setEditModalOpen(!editModalOpen)
   }
 
   return (
