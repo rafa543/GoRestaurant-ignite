@@ -7,7 +7,6 @@ interface ModalType {
 }
 
 export function Modal({ children, isOpen, setIsOpen }: ModalType) {
-  console.log('modal '+ setIsOpen)
 
   return (
     <ReactModal

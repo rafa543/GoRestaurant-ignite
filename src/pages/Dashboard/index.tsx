@@ -22,13 +22,13 @@ export function Dashboard() {
   const [editModalOpen, setEditModalOpen] = useState(false);
 
   useEffect(() => {
-    async function teste() {
+    async function init() {
       const response = await api.get('/foods');
-
+      console.log(response)
       setFoods(response.data);
     }
 
-    teste()
+    init()
   }, [])
 
   async function handleAddFood(food: Foods) {
@@ -38,7 +38,7 @@ export function Dashboard() {
         ...food,
         available: true,
       });
-
+      
       setFoods([...foods, response.data]);
     } catch (err) {
       console.log(err);

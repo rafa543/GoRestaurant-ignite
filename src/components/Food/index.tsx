@@ -13,10 +13,9 @@ interface FoodsProps {
 
 export function Food({ food, handleDelete, handleEditFood }: FoodsProps) {
 
-  const [isAvailable, setIsAvailable] = useState(false);
+  const [isAvailable, setIsAvailable] = useState(food.available);
 
   async function toggleAvailable() {
-
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
@@ -63,6 +62,7 @@ export function Food({ food, handleDelete, handleEditFood }: FoodsProps) {
         </div>
 
         <div className="availability-container">
+         
           <p>{isAvailable ? 'Disponível' : 'Indisponível'}</p>
 
           <label htmlFor={`available-switch-${food.id}`} className="switch">

@@ -3,9 +3,6 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
-import {
-  useState
-} from 'react';
 import { Foods } from '../../pages/Dashboard';
 
 interface Props {
@@ -15,7 +12,6 @@ interface Props {
 }
 
 export function ModalAddFood({isOpen,setIsOpen, handleAddFood}: Props) {
-  // const formRef = createRef()
 
   async function handleSubmit(data: Foods) {
     console.log(data)

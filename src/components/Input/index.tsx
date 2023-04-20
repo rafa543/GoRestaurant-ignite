@@ -1,8 +1,7 @@
 import {
   useEffect,
   useRef,
-  useState,
-  useCallback,
+  useState
 } from 'react';
 
 import { useField } from '@unform/core';
@@ -11,10 +10,8 @@ import { Container } from './styles';
 
 interface Props {
   name: string;
-  // label: string;
   icon?: string;
   placeholder: string;
-  // value: string;
 }
 
 export function Input ({ name, icon: Icon, ...rest }: Props) {
